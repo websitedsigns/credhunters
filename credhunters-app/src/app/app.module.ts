@@ -2,40 +2,34 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
-import { LandingPageComponent } from './landing-page/landing-page.component'; // Import LandingPageComponent
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms'; // Import FormsModule for two-way data binding
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
-import { CoasterCounterComponent } from './coaster-counter/coaster-counter.component';
-import { AddCoasterComponent } from './add-coaster/add-coaster.component';
-import { CoasterDataComponent } from './coaster-data.service';
+
+import { AppComponent } from './app.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CoasterListComponent } from './coaster-list/coaster-list.component';
+import { AddCoasterComponent } from './add-coaster/add-coaster.component';
+import { CoasterDataService } from './coaster-data.service'; // Import the service
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    CoasterCounterComponent,
-    AddCoasterComponent,
-    CoasterDataComponent,
     CoasterListComponent,
+    AddCoasterComponent,
   ],
   imports: [
-    MatDialogModule,
     BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule, // Add FormsModule to the imports array
     MatButtonModule,
     MatInputModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-   
   ],
-    
-  
-  providers: [],
+  providers: [CoasterDataService], // Provide the CoasterDataService
   bootstrap: [AppComponent],
 })
 export class AppModule {}

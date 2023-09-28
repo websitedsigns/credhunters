@@ -1,1 +1,12 @@
-<p>coaster-list works!</p>
+<!-- coaster-list.component.html -->
+<div class="container">
+    <h2>Coaster List</h2>
+    <ul>
+      <li *ngFor="let coaster of coasters">
+        <p>Name: {{ coaster.name }}</p>
+        <p>Park: {{ coaster.park }}</p>
+        <p>Manufacturer: {{ coaster.manufacturer }}</p>
+      </li>
+    </ul>
+  </div>
+  
