@@ -1,34 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoasterServiceComponent } from './component/coaster-service/coaster-service.component';
-import { LandingPageComponentComponent } from './component/landing-page/landing-page.component';
-import { AddCoasterComponent } from './component/add-coaster/add-coaster.component';
-import { CoasterListComponent } from './component/coaster-list/coaster-list.component';
-import { EditCoasterComponent } from './component/edit-coaster/edit-coaster.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CoasterServiceComponent,
-    LandingPageComponentComponent,
-    AddCoasterComponent,
-    CoasterListComponent,
-    EditCoasterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatButtonModule
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  imports: [BrowserModule, RouterModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

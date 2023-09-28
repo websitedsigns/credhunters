@@ -1,0 +1,16 @@
+<!-- Add Coaster Form -->
+<div class="add-coaster">
+  <h2>Add New Coaster</h2>
+  <form (submit)="addNewCoaster()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="newCoaster.name" name="name" required>
+    
+    <label for="park">Park:</label>
+    <input type="text" id="park" [(ngModel)]="newCoaster.park" name="park" required>
+    
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" id="manufacturer" [(ngModel)]="newCoaster.manufacturer" name="manufacturer" required>
+    
+    <button type="submit">Add Coaster</button>
+  </form>
+</div>
