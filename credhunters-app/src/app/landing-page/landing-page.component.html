@@ -5,7 +5,14 @@
       <div class="landing-page text-center">
         <h1>Welcome to the CredHunters</h1>
         <p>Time to get those +1s</p>
-        <button mat-button (click)="enterApp()">Enter</button>
+        <button 
+          mat-button
+          [@buttonAnimation]="buttonState"
+          (click)="enterApp()"
+          (@buttonAnimation.done)="buttonState = 'normal'"
+        >
+          Enter
+        </button>
       </div>
     </div>
   </div>

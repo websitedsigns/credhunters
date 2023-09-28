@@ -9,19 +9,26 @@ import { LandingPageComponent } from './landing-page/landing-page.component'; //
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CoasterCounterComponent } from './coaster-counter/coaster-counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent, // Add LandingPageComponent to declarations
+    LandingPageComponent,
+    CoasterCounterComponent,
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     MatButtonModule,
     MatInputModule,
     AppRoutingModule,
-    BrowserAnimationsModule, // Add AppRoutingModule to imports
+    BrowserAnimationsModule
+   
   ],
+    
+  
   providers: [],
   bootstrap: [AppComponent],
 })

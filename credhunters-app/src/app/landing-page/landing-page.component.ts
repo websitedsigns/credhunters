@@ -12,7 +12,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         transform: 'scale(1)'
       })),
       state('pressed', style({
-        transform: 'scale(0.9)'
+        transform: 'scale(1.2)'
       })),
       transition('normal => pressed', animate('100ms ease-in')),
       transition('pressed => normal', animate('100ms ease-out'))
