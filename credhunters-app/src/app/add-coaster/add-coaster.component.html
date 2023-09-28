@@ -6,7 +6,7 @@
           <div class="coaster-count">
             <h3>Your Cred Count: <br><br> {{ coasterCount }}</h3>
           </div>
-          <br><br>    
+          <br><br>
           <h2>Add Coaster</h2>
           <form (submit)="addCoaster()">
             <div class="form-group">
@@ -40,8 +40,7 @@
             <button
               type="submit"
               class="btn btn-primary"
-              [@buttonAnimation]="buttonState"
-              (@buttonAnimation.done)="buttonState = 'normal'"
+              
             >
               Add Coaster
             </button>

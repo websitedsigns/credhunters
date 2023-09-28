@@ -8,10 +8,8 @@ import { CoasterListComponent } from './coaster-list/coaster-list.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'coaster-counter', component: CoasterCounterComponent }, // Ensure the path is correct
-  { path: 'add-coaster', component: AddCoasterComponent }, // Ensure the path is correct
-  { path: 'coaster-list', component: CoasterListComponent }, // Ensure the path is correct
-
-
+  { path: 'add-coaster', component: AddCoasterComponent },
+  { path: 'coaster-list', component: CoasterListComponent },
 ];
 
 @NgModule({

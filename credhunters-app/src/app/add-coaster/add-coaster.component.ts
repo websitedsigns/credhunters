@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoasterDataService } from '../coaster-data.service';
-
+import { trigger, state, style, animate, transition } from '@angular/animations'; // Import animation-related functions
 @Component({
   selector: 'app-add-coaster',
   templateUrl: './add-coaster.component.html',
