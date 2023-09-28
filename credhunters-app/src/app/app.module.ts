@@ -11,12 +11,18 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CoasterCounterComponent } from './coaster-counter/coaster-counter.component';
+import { AddCoasterComponent } from './add-coaster/add-coaster.component';
+import { CoasterDataComponent } from './coaster-data.service';
+import { CoasterListComponent } from './coaster-list/coaster-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     CoasterCounterComponent,
+    AddCoasterComponent,
+    CoasterDataComponent,
+    CoasterListComponent,
   ],
   imports: [
     MatDialogModule,
