@@ -1,28 +1,25 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-edit-coaster',
   templateUrl: './edit-coaster.component.html',
 })
 export class EditCoasterComponent {
-  coaster: any;
-  editedCoaster: any = {};
+  editedCoaster: any = {}; // Define editedCoaster as an empty object
 
-  constructor(
-    private route: ActivatedRoute,
-    private firestore: AngularFirestore
-  ) {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.firestore.collection('coasters').doc(id).valueChanges().subscribe((data) => {
-      this.coaster = data;
-      this.editedCoaster = { ...this.coaster };
-    });
-  }
-
+  // Implement your logic to update the coaster here
   updateCoaster() {
-    // Implement your update logic here
-    this.firestore.collection('coasters').doc(this.coaster.id).update(this.editedCoaster);
+    // Check if the required data for updating the coaster is present
+    if (!this.editedCoaster.id || !this.editedCoaster.name || !this.editedCoaster.park || !this.editedCoaster.manufacturer) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // You can perform additional logic like sending the updated data to a server here
+    // For now, let's just log the updated coaster data
+    console.log('Updating coaster:', this.editedCoaster);
+
+    // Optionally, you can reset the form fields after updating the coaster
+    this.editedCoaster = {};
   }
 }
