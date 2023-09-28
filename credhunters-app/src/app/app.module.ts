@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoasterServiceComponent } from './component/coaster-service/coaster-service.component';
-import { LandingPageComponentComponent } from './component/landing-page/landing-page-component.component';
+import { LandingPageComponentComponent } from './component/landing-page/landing-page.component';
 import { AddCoasterComponent } from './component/add-coaster/add-coaster.component';
 import { CoasterListComponent } from './component/coaster-list/coaster-list.component';
 import { EditCoasterComponent } from './component/edit-coaster/edit-coaster.component';
