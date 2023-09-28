@@ -1,4 +1,6 @@
-<div class="container-fluid navy-bg full-height">
+    <!-- bootstrap formatting -->
+    
+    <div class="container-fluid navy-bg full-height">
     <!-- Add Coaster Form -->
     <div class="row full-height align-items-center justify-content-center">
       <div class="col-md-6 text-center">
@@ -37,11 +39,7 @@
                 [(ngModel)]="manufacturer"
               >
             </div>
-            <button
-              type="submit"
-              class="btn btn-primary"
-              
-            >
+            <button type="button" class="btn btn-primary" (click)="addCoaster()">
               Add Coaster
             </button>
           </form>

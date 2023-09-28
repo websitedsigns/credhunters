@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoasterDataService } from '../coaster-data.service';
-import { trigger, state, style, animate, transition } from '@angular/animations'; // Import animation-related functions
+
 @Component({
   selector: 'app-add-coaster',
   templateUrl: './add-coaster.component.html',
@@ -28,16 +28,28 @@ export class AddCoasterComponent implements OnInit {
         manufacturer: this.manufacturer,
       };
 
-      // Add the coaster to the data service
-      this.coasterDataService.addCoaster(newCoaster);
+      // Check if the coaster is a duplicate
+      if (!this.coasterDataService.isDuplicateCoaster(newCoaster)) {
+        // Add the coaster to the data service
+        this.coasterDataService.addCoaster(newCoaster);
 
-      // Reset form fields
-      this.coasterName = '';
-      this.park = '';
-      this.manufacturer = '';
+        // Reset form fields
+        this.coasterName = '';
+        this.park = '';
+        this.manufacturer = '';
 
-      // Update the coaster count
-      this.coasterCount++;
+        // Update the coaster count
+        this.coasterCount++;
+      } 
+      
+      else {
+        // Handle the case where the coaster is a duplicate
+        console.error('Duplicate coaster detected.');
+
+      }
+    } else {
+      // Handle the case where the form fields are not filled out
+      console.error('Please fill out all form fields.');
     }
   }
 }
