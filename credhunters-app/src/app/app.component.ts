@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
- 
+  title = 'Coaster App';
+
+  constructor() {
+    // You can add any initialization logic here
+  }
 }

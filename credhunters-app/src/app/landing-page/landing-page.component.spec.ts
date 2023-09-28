@@ -1,21 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { LandingPageComponentComponent } from './landing-page.component';
+@Component({
+  selector: 'app-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.css']
+})
+export class LandingPageComponent {
+  constructor(private router: Router) {}
 
-describe('LandingPageComponentComponent', () => {
-  let component: LandingPageComponentComponent;
-  let fixture: ComponentFixture<LandingPageComponentComponent>;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [LandingPageComponentComponent]
-    });
-    fixture = TestBed.createComponent(LandingPageComponentComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  enterApp() {
+    // Navigate to the desired route (e.g., the main app page)
+    this.router.navigate(['/app']);
+  }
+}

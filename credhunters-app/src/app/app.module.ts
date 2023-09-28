@@ -1,29 +1,26 @@
-import { NgModule } from '@angular/core';
+// src/app/app.module.ts
+
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CoasterListComponent } from './coaster-list/coaster-list.component';
-import { AddCoasterComponent } from './add-coaster/add-coaster.component';
-import { EditCoasterComponent } from './edit-coaster/edit-coaster.component';
+import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
+import { LandingPageComponent } from './landing-page/landing-page.component'; // Import LandingPageComponent
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoasterListComponent,
-    AddCoasterComponent,
-    EditCoasterComponent,
+    LandingPageComponent, // Add LandingPageComponent to declarations
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    RouterModule.forRoot([
-      { path: 'coasters', component: CoasterListComponent },
-      { path: 'add', component: AddCoasterComponent },
-      { path: 'edit/:id', component: EditCoasterComponent },
-      { path: '', redirectTo: 'coasters', pathMatch: 'full' },
-    ]),
+    MatButtonModule,
+    MatInputModule,
+    AppRoutingModule,
+    BrowserAnimationsModule, // Add AppRoutingModule to imports
   ],
   providers: [],
   bootstrap: [AppComponent],
