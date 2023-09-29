@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { CoasterDataService } from '../coaster-data.service';
-import { CoasterCountService } from '../shared/coaster-count.service';
+import { CoasterDataService } from '../coaster-data.service'; // Adjust the import path as needed
+import { CoasterCountService } from '../shared/coaster-count.service'; // Adjust the import path as needed
 
 @Component({
   selector: 'app-add-coaster',
   templateUrl: './add-coaster.component.html',
+  styleUrls: ['./add-coaster.component.css'], // You can add a CSS file if needed
 })
 export class AddCoasterComponent implements OnInit {
   coasterName: string = '';
   park: string = '';
   manufacturer: string = '';
-  buttonState: string = 'normal';
-  coasterCount: number = 0; // Declare the coasterCount property
+  coasterCount: number = 0; // Make sure this property is declared
+  coasters: any[] = []; // This array should hold your coaster data
 
-  
   constructor(
     private coasterDataService: CoasterDataService,
     private coasterCountService: CoasterCountService
   ) {}
 
   ngOnInit() {
-    // Initialize the coaster count when the component is loaded
-    this.coasterCountService.coasterCount$.subscribe((count) => {
-      this.coasterCount = count;
-    });
+    // Initialize the 'coasters' array when the component is loaded
+    this.coasters = this.coasterDataService.getCoasters();
+    // Initialize the 'coasterCount' with the initial count of coasters
+    this.coasterCount = this.coasters.length;
   }
 
   addCoaster() {
@@ -40,8 +40,11 @@ export class AddCoasterComponent implements OnInit {
         // Add the coaster to the data service
         this.coasterDataService.addCoaster(newCoaster);
 
-        // Increment the coaster count
-        this.coasterCountService.incrementCoasterCount();
+        // Update the 'coasters' array
+        this.coasters.push(newCoaster);
+
+        // Increment the coasterCount
+        this.coasterCount++;
 
         // Reset form fields
         this.coasterName = '';
