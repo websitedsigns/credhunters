@@ -13,7 +13,7 @@ export class AddCoasterComponent implements OnInit {
   manufacturer: string = '';
   coasterCount: number = 0; // Make sure this property is declared
   coasters: any[] = []; // This array should hold your coaster data
-
+  
   constructor(
     private coasterDataService: CoasterDataService,
     private coasterCountService: CoasterCountService
@@ -22,8 +22,6 @@ export class AddCoasterComponent implements OnInit {
   ngOnInit() {
     // Initialize the 'coasters' array when the component is loaded
     this.coasters = this.coasterDataService.getCoasters();
-    // Initialize the 'coasterCount' with the initial count of coasters
-    this.coasterCount = this.coasters.length;
   }
 
   addCoaster() {
@@ -34,18 +32,17 @@ export class AddCoasterComponent implements OnInit {
         park: this.park,
         manufacturer: this.manufacturer,
       };
-
+  
       // Check if the coaster is a duplicate
       if (!this.coasterDataService.isDuplicateCoaster(newCoaster)) {
         // Add the coaster to the data service
         this.coasterDataService.addCoaster(newCoaster);
-
-        // Update the 'coasters' array
-        this.coasters.push(newCoaster);
-
+  
+       
+  
         // Increment the coasterCount
         this.coasterCount++;
-
+  
         // Reset form fields
         this.coasterName = '';
         this.park = '';
