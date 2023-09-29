@@ -1,16 +1,18 @@
-// coaster-list.component.ts
-import { Component } from '@angular/core';
-import { CoasterDataService } from '../coaster-data.service'; // Import the service
+import { Component, OnInit } from '@angular/core';
+import { CoasterCountService } from '../shared/coaster-count.service';
 
 @Component({
   selector: 'app-coaster-list',
   templateUrl: './coaster-list.component.html',
 })
-export class CoasterListComponent {
-  coasters: any[] = []; // Initialize the property as an empty array
+export class CoasterListComponent implements OnInit {
+  coasterCount: number = 0;
 
-  constructor(private coasterDataService: CoasterDataService) {
-    // Fetch coaster data from the service
-    this.coasters = this.coasterDataService.getCoasters();
+  constructor(private coasterCountService: CoasterCountService) {}
+
+  ngOnInit() {
+    this.coasterCountService.coasterCount$.subscribe((count) => {
+      this.coasterCount = count;
+    });
   }
 }

@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CoasterCountService } from '../shared/coaster-count.service';
 
 @Component({
   selector: 'app-coaster-counter',
   templateUrl: './coaster-counter.component.html',
 })
-export class CoasterCounterComponent {
-  coasterCount = 0; // Initialize the coaster count
+export class CoasterCounterComponent implements OnInit {
+  coasterCount: number = 0;
 
-  incrementCount() {
-    this.coasterCount++;
-  }
+  constructor(private coasterCountService: CoasterCountService) {}
 
-  decrementCount() {
-    if (this.coasterCount > 0) {
-      this.coasterCount--;
-    }
+  ngOnInit() {
+    this.coasterCountService.coasterCount$.subscribe((count) => {
+      this.coasterCount = count;
+    });
   }
 }

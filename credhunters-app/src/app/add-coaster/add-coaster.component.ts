@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoasterDataService } from '../coaster-data.service';
+import { CoasterCountService } from '../shared/coaster-count.service';
 
 @Component({
   selector: 'app-add-coaster',
@@ -10,13 +11,17 @@ export class AddCoasterComponent implements OnInit {
   park: string = '';
   manufacturer: string = '';
   buttonState: string = 'normal';
-  coasterCount: number = 0;
 
-  constructor(private coasterDataService: CoasterDataService) {}
+  constructor(
+    private coasterDataService: CoasterDataService,
+    private coasterCountService: CoasterCountService
+  ) {}
 
   ngOnInit() {
     // Initialize the coaster count when the component is loaded
-    this.coasterCount = this.coasterDataService.getCoasterCount();
+    this.coasterCountService.coasterCount$.subscribe((count) => {
+      this.coasterCount = count;
+    });
   }
 
   addCoaster() {
@@ -33,8 +38,8 @@ export class AddCoasterComponent implements OnInit {
         // Add the coaster to the data service
         this.coasterDataService.addCoaster(newCoaster);
 
-        // Increment the coaster count
-        this.coasterCount++;
+        // Increment the coaster count using the service
+        this.coasterCountService.incrementCoasterCount();
 
         // Reset form fields
         this.coasterName = '';
