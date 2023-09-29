@@ -30,7 +30,7 @@ export class LandingPageComponent {
 
     // Navigate to the desired route (e.g., the coaster list page) after a delay
     setTimeout(() => {
-      this.router.navigate(['/coaster-counter']);
+      this.router.navigate(['/add-coaster']);
     }, 200); // Adjust the delay duration as needed
   }
 }
