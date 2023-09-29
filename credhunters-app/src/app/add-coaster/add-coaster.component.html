@@ -27,49 +27,40 @@
             </div>
           </nav>
     <!-- Add Coaster Form -->
-    <div class="row full-height align-items-center justify-content-center">
-      <div class="col-md-6 text-center">
-        
-        <div class="landing-page">
-          <div class="coaster-count">
-            <h3>Your Cred Count: <br><br> {{ coasterCount }}</h3>
+    <div class="container">
+        <h2>Add Coaster</h2>
+        <form (submit)="addCoaster()">
+          <div class="form-group">
+            <label for="coasterName">Coaster Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="coasterName"
+              [(ngModel)]="coasterName"
+              required
+            >
           </div>
-          <br><br>
-          <h2>Add Coaster</h2>
-  <form (submit)="addCoaster()">
-    <div class="form-group">
-      <label for="coasterName">Coaster Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="coasterName"
-        [(ngModel)]="coasterName"
-        name="coasterName"
-        required
-      >
-    </div>
-    <div class="form-group">
-      <label for="park">Park</label>
-      <input
-        type="text"
-        class="form-control"
-        id="park"
-        [(ngModel)]="park"
-        name="park"
-        required
-      >
-    </div>
-    <div class="form-group">
-      <label for="manufacturer">Manufacturer</label>
-      <input
-        type="text"
-        class="form-control"
-        id="manufacturer"
-        [(ngModel)]="manufacturer"
-        name="manufacturer"
-        required
-      >
-    </div>
-    <button type="submit" class="btn btn-primary">Add Coaster</button>
-  </form>
-</div>
+          <div class="form-group">
+            <label for="park">Park</label>
+            <input
+              type="text"
+              class="form-control"
+              id="park"
+              [(ngModel)]="park"
+            >
+          </div>
+          <div class="form-group">
+            <label for="manufacturer">Manufacturer</label>
+            <input
+              type="text"
+              class="form-control"
+              id="manufacturer"
+              [(ngModel)]="manufacturer"
+            >
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addCoaster()">
+            Add Coaster
+          </button>
+        </form>
+      </div>
+      
