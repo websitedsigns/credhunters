@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Coaster } from './models/coaster.model';
-
 @Injectable({
   providedIn: 'root',
 })

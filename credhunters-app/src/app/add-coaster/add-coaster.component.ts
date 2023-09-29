@@ -33,19 +33,16 @@ export class AddCoasterComponent implements OnInit {
         // Add the coaster to the data service
         this.coasterDataService.addCoaster(newCoaster);
 
+        // Increment the coaster count
+        this.coasterCount++;
+
         // Reset form fields
         this.coasterName = '';
         this.park = '';
         this.manufacturer = '';
-
-        // Update the coaster count
-        this.coasterCount++;
-      } 
-      
-      else {
+      } else {
         // Handle the case where the coaster is a duplicate
         console.error('Duplicate coaster detected.');
-
       }
     } else {
       // Handle the case where the form fields are not filled out
