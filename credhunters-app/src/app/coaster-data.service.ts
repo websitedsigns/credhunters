@@ -18,6 +18,11 @@ export class CoasterDataService {
     return this.coasters;
   }
 
+    // Get the total count of coasters
+  getCoasterCount(): number {
+    return this.coasters.length;
+  }
+  
   // Check if a coaster with the same name already exists
   isDuplicateCoaster(newCoaster: Coaster): boolean {
     return this.coasters.some((coaster) => coaster.name === newCoaster.name);
